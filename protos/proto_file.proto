@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+service TestGrpcService {
+  rpc SayHelloToWorld(SayHelloRequest) returns (SayHelloResponse) {}
+  rpc SumTwoNumbers(SumRequest) returns (SumResponse) {}
+  rpc GetPeopleFromKubitTi(GetPeopleRequest) returns (GetPeopleResponse) {}
+}
+
+message SayHelloRequest {
+  string name = 1;
+}
+
+message SayHelloResponse {
+  string response = 1;
+}
+
+message SumRequest{
+  int32 firstNumber = 1;
+  int32 secondNumber = 2;
+}
+
+message SumResponse{
+  int32 total = 1;
+}
+
+message GetPeopleResponse{
+  string response = 1;
+  bool status = 2;
+}
+
+message GetPeopleRequest{
+  string peopleName = 1;
+}
