@@ -19,12 +19,16 @@ import 'package:grpc_flutter_poc/src/generated/proto_file.pbgrpc.dart';
 
 Future<void> main(List<String> args) async {
   final channel = ClientChannel(
-    '34.41.20.1',
+    '34.134.41.68',
     port: 50051,
     options: ChannelOptions(
       credentials: ChannelCredentials.insecure(),
-      codecRegistry:
-          CodecRegistry(codecs: const [GzipCodec(), IdentityCodec()]),
+      codecRegistry: CodecRegistry(
+        codecs: const [
+          GzipCodec(),
+          IdentityCodec(),
+        ],
+      ),
     ),
   );
   final stub = TestGrpcServiceClient(channel);
